@@ -1,6 +1,9 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Load Firebase credentials from environment variables
 cred = credentials.Certificate({
