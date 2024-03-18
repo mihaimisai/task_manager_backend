@@ -7,5 +7,5 @@ app = create_app()
 @app.route('/api')
 def api():
     docs = read_from_database()
-    for entry in docs:
-        return jsonify({entry.id: entry.to_dict()})
+    data = {entry.id: entry.to_dict() for entry in docs}
+    return jsonify(data)
