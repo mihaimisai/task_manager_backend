@@ -1,11 +1,13 @@
 from flask import jsonify
-from app import create_app
 from app.firebase_utils import read_from_database
+from app import app
 
-app = create_app()
 
 @app.route('/api')
 def api():
     docs = read_from_database()
-    data = {entry.id: entry.to_dict() for entry in docs}
-    return jsonify(data)
+    for entry in docs:
+        return jsonify({entry.id: entry.to_dict()})
+@app.route('/')
+def index():
+    return 'Hello World'
