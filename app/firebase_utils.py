@@ -26,16 +26,3 @@ try:
     print("Connected to Firestore")
 except Exception as e:
     print("Error connecting to Firestore")
-    
-
-def write_to_database(data):
-    # Write data to Firestore database
-    for entry in data:
-        doc_ref = db.collection('users').document(entry['name'])
-        doc_ref.set(entry)
-
-def read_from_database():
-    # Read data from Firestore database
-    readDb = db.collection('users')
-    docs = readDb.stream()
-    return docs

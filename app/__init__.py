@@ -7,3 +7,5 @@ CORS(app)
 
 # Import routes
 from app import routes
+
+
