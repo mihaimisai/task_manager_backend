@@ -17,7 +17,7 @@ def add_data():
         data = request.json()
         print(data)
         
-        return jsonify('added')
+        return jsonify(data)
     except Exception as e:  # Catch all exceptions
         return jsonify(str(e))
     
