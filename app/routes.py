@@ -27,7 +27,7 @@ def get_user_data():
         id_token = request.headers.get("Authorization").split(" ")[1]
         # Verify the ID token while checking if the token is revoked by
         # passing check_revoked=True.
-        decoded_token = auth.verify_id_token(id_token)
+        decoded_token = auth.verify_id_token(id_token, clock_skew_in_seconds=10)
         #print(decoded_token)
         #issuance_time = datetime.utcfromtimestamp(decoded_token['iat'])
         #current_time = datetime.utcnow()
